@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sistema de Apostas</title>
+    <title>SerraBet</title>
   </head>
   <body>
     <h1>Sistema de Apostas</h1>
