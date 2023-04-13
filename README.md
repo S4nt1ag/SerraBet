@@ -6,7 +6,7 @@
     <title>SerraBet</title>
   </head>
   <body>
-    <h1>Sistema de Apostas</h1>
+    <h1>SerraBet</h1>
     <p>O professor dará a aula às:</p>
     <input type="time" id="hora" name="hora">
     <br>
@@ -20,8 +20,8 @@
         horaAposta.setHours(document.getElementById("hora").value.split(":")[0]);
         horaAposta.setMinutes(document.getElementById("hora").value.split(":")[1]);
         var horaAula = new Date();
-        horaAula.setHours(14); // Altere aqui para a hora em que o professor dará a aula
-        horaAula.setMinutes(0); // Altere aqui para o minuto em que o professor dará a aula
+        horaAula.setHours(16); // Altere aqui para a hora em que o professor dará a aula
+        horaAula.setMinutes(26); // Altere aqui para o minuto em que o professor dará a aula
         if (horaAposta.getTime() == horaAula.getTime()) {
           document.getElementById("resultado").innerHTML = "Parabéns! Você acertou a hora da aula!";
         } else {
