@@ -7,8 +7,8 @@
   </head>
   <body>
     <h1>Sistema de Apostas</h1>
-    <p>Informe o valor da sua aposta:</p>
-    <input type="number" id="aposta" name="aposta">
+    <p>O professor dará a aula às:</p>
+    <input type="time" id="hora" name="hora">
     <br>
     <button onclick="jogar()">Jogar</button>
     <br>
@@ -16,12 +16,19 @@
 
     <script>
       function jogar() {
-        var aposta = document.getElementById("aposta").value;
-        var resultado = Math.floor(Math.random() * 2);
-        if (resultado == 0) {
-          document.getElementById("resultado").innerHTML = "Você perdeu a aposta de " + aposta + " reais.";
+        var horaAposta = new Date();
+        horaAposta.setHours(document.getElementById("hora").value.split(":")[0]);
+        horaAposta.setMinutes(document.getElementById("hora").value.split(":")[1]);
+        var horaAula = new Date();
+        horaAula.setHours(14); // Altere aqui para a hora em que o professor dará a aula
+        horaAula.setMinutes(0); // Altere aqui para o minuto em que o professor dará a aula
+        if (horaAposta.getTime() == horaAula.getTime()) {
+          document.getElementById("resultado").innerHTML = "Parabéns! Você acertou a hora da aula!";
         } else {
-          document.getElementById("resultado").innerHTML = "Você ganhou a aposta de " + aposta + " reais!";
+          var diff = Math.abs(horaAposta - horaAula) / 1000;
+          var minutos = Math.floor(diff / 60) % 60;
+          var horas = Math.floor(diff / 3600) % 24;
+          document.getElementById("resultado").innerHTML = "Você errou a hora da aula. A diferença é de " + horas + " hora(s) e " + minutos + " minuto(s).";
         }
       }
     </script>
