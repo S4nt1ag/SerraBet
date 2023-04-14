@@ -42,13 +42,9 @@ function salvarAposta() {
     })
 }
 
-
-
 function listarApostas() {
-var elemento = ''
+  var elemento = ''
   var listaApostas = document.getElementById('tabelaApostas')
-
-  listaApostas.innerHTML = ''
 
   firebase
     .database()
@@ -60,6 +56,7 @@ var elemento = ''
         var aposta = childData.aposta
 
         elemento += '<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>'
+
         tabelaApostas.innerHTML = elemento
       })
     })
