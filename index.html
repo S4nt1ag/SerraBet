@@ -2,12 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>SerraBet</title>
-   
+    <title>Sistema de Apostas</title>
   </head>
   <body>
-    <script>
-    <h1>SerraBet</h1>
+    <h1>Sistema de Apostas</h1>
     <form>
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required>
@@ -17,38 +15,34 @@
       <br>
       <button type="submit">Salvar</button>
     </form>
-          <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script>
       // Configuração do Firebase
       var firebaseConfig = {
-        apiKey: "AIzaSyDJtvFsSBhbrT8KHgB8ffB4Gphu7dlMshg",
-        authDomain: "serrabets.firebaseapp.com",
-        projectId: "serrabets",
-        storageBucket: "serrabets.appspot.com",
-        messagingSenderId: "517651439831",
-        appId: "1:517651439831:web:8583f5fc40ad0bdbf11092",
-        measurementId: "G-GXNCLG1RPS"
+        apiKey: "SUA_API_KEY",
+        authDomain: "SEU_DOMÍNIO.firebaseapp.com",
+        databaseURL: "https://SEU_DOMÍNIO.firebaseio.com",
+        projectId: "SEU_PROJECT_ID",
+        storageBucket: "SEU_BUCKET.appspot.com",
+        messagingSenderId: "SEU_SENDER_ID",
+        appId: "SEU_APP_ID"
       };
       firebase.initializeApp(firebaseConfig);
 
       // Referência ao banco de dados
       var database = firebase.database();
-   
 
       // Função para salvar a aposta no banco de dados
       function salvarAposta(nome, aposta) {
-          db.collection("apostas").add({
-            nome: nome,
-            aposta: aposta
-          })
-          .then(function(docRef) {
-              console.log("Documento salvo com ID: ", docRef.id);
-          })
-          .catch(function(error) {
-              console.error("Erro ao salvar documento: ", error);
-          });
-       }
+        var data = new Date();
+        var apostaRef = database.ref("apostas/" + data.getTime());
+        apostaRef.set({
+          nome: nome,
+          aposta: aposta
+        });
+      }
 
       // Evento de envio do formulário
       document.querySelector("form").addEventListener("submit", function(event) {
@@ -58,21 +52,6 @@
         salvarAposta(nome, aposta);
         alert("Aposta salva com sucesso!");
       });
-      
-      // Recupera as apostas do banco de dados
-      var apostasRef = database.ref("apostas");
-      apostasRef.on("value", function(snapshot) {
-        var apostas = snapshot.val();
-        var listaApostas = document.getElementById("apostas");
-        listaApostas.innerHTML = "";
-        for (var aposta in apostas) {
-          var nome = apostas[aposta].nome;
-          var hora = apostas[aposta].aposta;
-          var li = document.createElement("li");
-          li.textContent = nome + " - " + hora;
-          listaApostas.appendChild(li);
-        }
     </script>
   </body>
 </html>
-
