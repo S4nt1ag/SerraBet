@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <title>SerraBet</title>
-     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+   
+  </head>
+  <body>
+    <script>
+    <h1>SerraBet</h1>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      <br>
+      <label for="aposta">Aposta:</label>
+      <input type="time" id="aposta" name="aposta" required>
+      <br>
+      <button type="submit">Salvar</button>
+    </form>
+          <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script>
       // Configuração do Firebase
@@ -20,21 +34,6 @@
 
       // Referência ao banco de dados
       var database = firebase.database();
-      </script>
-  </head>
-  <body>
-    <script>
-    <h1>SerraBet</h1>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-      <br>
-      <label for="aposta">Aposta:</label>
-      <input type="time" id="aposta" name="aposta" required>
-      <br>
-      <button type="submit">Salvar</button>
-    </form>
-
    
 
       // Função para salvar a aposta no banco de dados
