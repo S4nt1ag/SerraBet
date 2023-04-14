@@ -60,3 +60,10 @@ function listarApostas() {
 window.onload = function () {
     listarApostas();
 };
+var cron = require('node-cron');
+cron.schedule('0 22 * * *', function () {
+    database.ref('/apostas').remove();
+});
+
+document.getElementById('form').addEventListener('submit', adicionarAposta);
+firebase.database().ref('/apostas').on('child_added', listarApostas);
