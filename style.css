@@ -7,32 +7,35 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(0deg, rgb(17, 17, 236) 0%, rgb(77, 200, 253) 100%);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     justify-content: center;
     align-items: center;
-
 }
-
-form {
+.card{
     max-width: 600px;
     margin: 0 auto;
-    display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     padding: 2em;
     border-radius: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
 
 h1 {
     text-align: center;
-    margin-bottom: 1em;
+    margin: 1em auto;
     color: #000000;
 }
 
@@ -47,7 +50,6 @@ li {
     margin-bottom: 1em;
 }
 
-
 input {
     padding: 10px;
     width: 50%;
@@ -59,14 +61,7 @@ input {
     margin: 10px auto;
     text-align: center;
     border: 1px solid #dddddd;
-    transition: transform .3s;
-    text-indent: 5%;
-}
-
-main input:hover {
-    border-color: rgba(35, 35, 255, 0.596);
-    transform: scale(1.002);
-    cursor: pointer;
+    cursor:pointer;
 }
 
 button {
@@ -88,11 +83,60 @@ button {
 button:hover {
     cursor: pointer;
     transform: scale(1.03);
-    background-color: #36459b;
-    box-shadow: 0px 10px 15px -3px rgba(82, 85, 88, 0.726);
+    background-color: #3d52c9;
+    box-shadow: 0px 10px 15px -3px rgba(82, 85, 88, 0.527);
 }
 
-/* Estilos para a lista de apostas */
+.card-apostas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tabela {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #e2e2e2;
+    
+}
+.tabela thead tr{
+    background-color: #3d52c9;
+    text-align: center;
+
+}
+.tabela thead {
+    font-size: 16px;
+}
+.tabela thead > tr > th {
+    color: #e2e2e2;    
+}
+
+.tabela th,
+.tabela td {
+    padding: 12px 15px;
+    text-align: center;
+}
+.tabela tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tabela tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tabela tbody tr:last-of-type {
+    border-bottom: 2px solid #3d52c9;
+}
+
+.tabela tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+/* Estilos para a lista de apostas
 table {
     max-width: 600px;
     margin: 20px auto;
@@ -110,7 +154,7 @@ td {
 th {
     background-color: #4CAF50;
     color: white;
-}
+} */
 
 footer {
     position: fixed;

@@ -1,69 +1,76 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyDJtvFsSBhbrT8KHgB8ffB4Gphu7dlMshg",
-    authDomain: "serrabets.firebaseapp.com",
-    databaseURL: "https://serrabets-default-rtdb.firebaseio.com",
-    projectId: "serrabets",
-    storageBucket: "serrabets.appspot.com",
-    messagingSenderId: "517651439831",
-    appId: "1:517651439831:web:88eab2dc497cfbebf11092",
-    measurementId: "G-4CW5Z5E69L"
-};
+  apiKey: 'AIzaSyDJtvFsSBhbrT8KHgB8ffB4Gphu7dlMshg',
+  authDomain: 'serrabets.firebaseapp.com',
+  databaseURL: 'https://serrabets-default-rtdb.firebaseio.com',
+  projectId: 'serrabets',
+  storageBucket: 'serrabets.appspot.com',
+  messagingSenderId: '517651439831',
+  appId: '1:517651439831:web:88eab2dc497cfbebf11092',
+  measurementId: 'G-4CW5Z5E69L'
+}
 
-firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
+firebase.initializeApp(firebaseConfig)
+var database = firebase.database()
 
 function salvarAposta() {
-    var nome = document.getElementById("nome").value;
-    var aposta = document.getElementById("aposta").value;
+  var nome = document.getElementById('nome').value
+  var aposta = document.getElementById('aposta').value
 
-    var newPostKey = firebase.database().ref().child('apostas').push().key;
+  var newPostKey = firebase.database().ref().child('apostas').push().key
 
-    var postData = {
-        nome: nome,
-        aposta: aposta
-    };
+  var postData = {
+    nome: nome,
+    aposta: aposta
+  }
 
-    var updates = {};
-    updates['/apostas/' + newPostKey] = postData;
+  var updates = {}
+  updates['/apostas/' + newPostKey] = postData
 
-    firebase.database().ref().update(updates)
-        .then(function () {
-            console.log("Documento salvo com ID: ", newPostKey);
-            alert("Aposta salva com sucesso!");
-            document.getElementById("nome").value = "";
-            document.getElementById("aposta").value = "";
-        })
-        .catch(function (error) {
-            console.error("Erro ao salvar documento: ", error);
-            alert("Erro ao salvar aposta!");
-        });
+  firebase
+    .database()
+    .ref()
+    .update(updates)
+    .then(function () {
+      console.log('Documento salvo com ID: ', newPostKey)
+      alert('Aposta salva com sucesso!')
+      document.getElementById('nome').value = ''
+      document.getElementById('aposta').value = ''
+    })
+    .catch(function (error) {
+      console.error('Erro ao salvar documento: ', error)
+      alert('Erro ao salvar aposta!')
+    })
 }
+
+
 
 function listarApostas() {
-    var listaApostas = document.getElementById("listaApostas");
+var elemento = ''
+  var listaApostas = document.getElementById('tabelaApostas')
 
-    listaApostas.innerHTML = "";
+  listaApostas.innerHTML = ''
 
-    firebase.database().ref('/apostas').on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            var childData = childSnapshot.val();
-            var nome = childData.nome;
-            var aposta = childData.aposta;
+  firebase
+    .database()
+    .ref('/apostas')
+    .on('value', function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        var childData = childSnapshot.val()
+        var nome = childData.nome
+        var aposta = childData.aposta
 
-            var li = document.createElement("li");
-            var text = document.createTextNode(nome + " apostou " + aposta + ".");
-            li.appendChild(text);
-            listaApostas.appendChild(li);
-        });
-    });
+        elemento += '<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>'
+        tabelaApostas.innerHTML = elemento
+      })
+    })
 }
 window.onload = function () {
-    listarApostas();
-};
-var cron = require('node-cron');
+  listarApostas()
+}
+var cron = require('node-cron')
 cron.schedule('0 22 * * *', function () {
-    database.ref('/apostas').remove();
-});
+  database.ref('/apostas').remove()
+})
 
-document.getElementById('form').addEventListener('submit', adicionarAposta);
-firebase.database().ref('/apostas').on('child_added', listarApostas);
+document.getElementById('form').addEventListener('submit', adicionarAposta)
+firebase.database().ref('/apostas').on('child_added', listarApostas)

@@ -9,32 +9,42 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
+
   <h1>SerraBet</h1>
-  <form>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome"><br>
+  <div class="card">
+    <form>
+      <label for="nome">Digite seu nome</label>
+      <input type="text" id="nome" name="nome"><br>
 
-    <label for="aposta">Hora da aula:</label>
-    <input type="text" id="aposta" name="aposta"><br>
+      <label for="aposta">Hora da aula:</label>
+      <input type="text" id="aposta" name="aposta"><br>
 
-    <button type="button" onclick="salvarAposta()">Salvar</button>
-  </form>
-
-  <h2>Apostas Salvas</h2>
-  <ul id="listaApostas">
-  </ul>
-
-  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-  <script src="app.js"></script>
+      <button type="button" onclick="salvarAposta()">Salvar</button>
+    </form>
+    <div class="card-apostas">
+      <h2>Apostas até agora</h2>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th> Nome </th>
+            <th> Horario da aposta </th>
+          </tr>
+        </thead>
+        <tbody id="tabelaApostas">
+        </tbody>
+      </table>
+    </div>
+  </div>
   <footer>
     <p>Desenvolvido por Gabrieis - 2023 © </p>
   </footer>
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+<script src="app.js"></script>
 
 </html>
