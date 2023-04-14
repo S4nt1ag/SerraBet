@@ -1,57 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Sistema de Apostas</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-16x16.png">
+  <title>SerraBet - O melhor site de apostas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <main>
     <h1>SerraBet</h1>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-      <br>
-      <label for="aposta">Aposta:</label>
-      <input type="time" id="aposta" name="aposta" required>
-      <br>
-      <button type="submit">Salvar</button>
-    </form>
+    <p>Quando o professor irá entrar na aula?</p>
+    <input type="time" id="hora" name="hora">
+    <button onclick="jogar()">Jogar</button>
+    <div id="card-resultado">
+      <p id="txt-resultado"></p>
+    </div>
+  </main>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-    <script>
-      // Configuração do Firebase
-     var firebaseConfig = {
-          apiKey: "AIzaSyDJtvFsSBhbrT8KHgB8ffB4Gphu7dlMshg",
-          authDomain: "serrabets.firebaseapp.com",
-          projectId: "serrabets",
-          storageBucket: "serrabets.appspot.com",
-          messagingSenderId: "517651439831",
-          appId: "1:517651439831:web:8583f5fc40ad0bdbf11092",
-          measurementId: "G-GXNCLG1RPS"
-    };
-      firebase.initializeApp(firebaseConfig);
+  <footer>
+    <p>Desenvolvido por Gabrieis - 2023 © </p>
+  </footer>
+</body>
 
-      // Referência ao banco de dados
-      var database = firebase.database();
-
-      // Função para salvar a aposta no banco de dados
-      function salvarAposta(nome, aposta) {
-        var data = new Date();
-        var apostaRef = database.ref("apostas/" + data.getTime());
-        apostaRef.set({
-          nome: nome,
-          aposta: aposta
-        });
-      }
-
-      // Evento de envio do formulário
-      document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        var nome = document.getElementById("nome").value;
-        var aposta = document.getElementById("aposta").value;
-        salvarAposta(nome, aposta);
-        alert("Aposta salva com sucesso!");
-      });
-    </script>
-  </body>
 </html>
