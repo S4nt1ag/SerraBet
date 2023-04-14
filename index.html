@@ -36,13 +36,17 @@
 
       // Função para salvar a aposta no banco de dados
       function salvarAposta(nome, aposta) {
-        var data = new Date();
-        var apostaRef = database.ref("apostas/" + data.getTime());
-        apostaRef.set({
-          nome: nome,
-          aposta: aposta
-        });
-      }
+          db.collection("apostas").add({
+            nome: nome,
+            aposta: aposta
+          })
+          .then(function(docRef) {
+              console.log("Documento salvo com ID: ", docRef.id);
+          })
+          .catch(function(error) {
+              console.error("Erro ao salvar documento: ", error);
+          });
+       }
 
       // Evento de envio do formulário
       document.querySelector("form").addEventListener("submit", function(event) {
