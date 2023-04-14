@@ -50,15 +50,19 @@ function listarApostas() {
     .database()
     .ref('/apostas')
     .on('value', function (snapshot) {
+      var elementos = []
       snapshot.forEach(function (childSnapshot) {
         var childData = childSnapshot.val()
         var nome = childData.nome
         var aposta = childData.aposta
 
-        elemento += '<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>'
-
-        tabelaApostas.innerHTML = elemento
+        elementos.push('<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>')
       })
+
+      // Inverte a ordem da lista de apostas
+      elementos.reverse()
+
+      listaApostas.innerHTML = elementos.join('')
     })
 }
 window.onload = function () {
