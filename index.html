@@ -56,6 +56,20 @@
         salvarAposta(nome, aposta);
         alert("Aposta salva com sucesso!");
       });
+      
+      // Recupera as apostas do banco de dados
+      var apostasRef = database.ref("apostas");
+      apostasRef.on("value", function(snapshot) {
+        var apostas = snapshot.val();
+        var listaApostas = document.getElementById("apostas");
+        listaApostas.innerHTML = "";
+        for (var aposta in apostas) {
+          var nome = apostas[aposta].nome;
+          var hora = apostas[aposta].aposta;
+          var li = document.createElement("li");
+          li.textContent = nome + " - " + hora;
+          listaApostas.appendChild(li);
+        }
     </script>
   </body>
 </html>
