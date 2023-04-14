@@ -20,7 +20,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script>
       // Configuração do Firebase
-     const firebaseConfig = {
+     var firebaseConfig = {
           apiKey: "AIzaSyDJtvFsSBhbrT8KHgB8ffB4Gphu7dlMshg",
           authDomain: "serrabets.firebaseapp.com",
           projectId: "serrabets",
@@ -29,8 +29,7 @@
           appId: "1:517651439831:web:8583f5fc40ad0bdbf11092",
           measurementId: "G-GXNCLG1RPS"
     };
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+      firebase.initializeApp(firebaseConfig);
 
       // Referência ao banco de dados
       var database = firebase.database();
