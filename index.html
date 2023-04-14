@@ -2,34 +2,57 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>SerraBet</title>
+    <title>Sistema de Apostas</title>
   </head>
   <body>
-    <h1>Serrabet</h1>
-    <p>O professor dará a aula às:</p>
-    <input type="time" id="hora" name="hora">
-    <br>
-    <button onclick="jogar()">Jogar</button>
-    <br>
-    <p id="resultado"></p>
+    <h1>Sistema de Apostas</h1>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      <br>
+      <label for="aposta">Aposta:</label>
+      <input type="time" id="aposta" name="aposta" required>
+      <br>
+      <button type="submit">Salvar</button>
+    </form>
 
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script>
-      function jogar() {
-        var horaAposta = new Date();
-        horaAposta.setHours(document.getElementById("hora").value.split(":")[0]);
-        horaAposta.setMinutes(document.getElementById("hora").value.split(":")[1]);
-        var horaAula = new Date();
-        horaAula.setHours(18); // Altere aqui para a hora em que o professor dará a aula
-        horaAula.setMinutes(26); // Altere aqui para o minuto em que o professor dará a aula
-        if (horaAposta.getTime() == horaAula.getTime()) {
-          document.getElementById("resultado").innerHTML = "Parabéns! Você acertou a hora da aula!";
-        } else {
-          var diff = Math.abs(horaAposta - horaAula) / 1000;
-          var minutos = Math.floor(diff / 60) % 60;
-          var horas = Math.floor(diff / 3600) % 24;
-          document.getElementById("resultado").innerHTML = "Você errou a hora da aula. A diferença é de " + horas + " hora(s) e " + minutos + " minuto(s).";
-        }
+      // Configuração do Firebase
+      var firebaseConfig = {
+        apiKey: "SUA_API_KEY",
+        authDomain: "SEU_DOMÍNIO.firebaseapp.com",
+        databaseURL: "https://SEU_DOMÍNIO.firebaseio.com",
+        projectId: "SEU_PROJECT_ID",
+        storageBucket: "SEU_BUCKET.appspot.com",
+        messagingSenderId: "SEU_SENDER_ID",
+        appId: "SEU_APP_ID"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      // Referência ao banco de dados
+      var database = firebase.database();
+
+      // Função para salvar a aposta no banco de dados
+      function salvarAposta(nome, aposta) {
+        var data = new Date();
+        var apostaRef = database.ref("apostas/" + data.getTime());
+        apostaRef.set({
+          nome: nome,
+          aposta: aposta
+        });
       }
+
+      // Evento de envio do formulário
+      document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var nome = document.getElementById("nome").value;
+        var aposta = document.getElementById("aposta").value;
+        salvarAposta(nome, aposta);
+        alert("Aposta salva com sucesso!");
+      });
     </script>
   </body>
 </html>
+
