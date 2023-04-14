@@ -1,0 +1,127 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #1d1d1f;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(0deg, rgb(17, 17, 236) 0%, rgb(77, 200, 253) 100%);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2em;
+    border-radius: 1em;
+
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #000000;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #000000;
+}
+
+ li {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+
+input {
+    padding: 10px;
+    width: 50%;
+    height: 3em;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 1em;
+    border-width: 1px;
+    margin: 10px auto;
+    text-align: center;
+    border: 1px solid #dddddd;
+    transition: transform .3s;
+    text-indent: 5%;
+}
+
+main input:hover {
+    border-color: rgba(35, 35, 255, 0.596);
+    transform: scale(1.002);
+    cursor: pointer;
+}
+
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 20px auto;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background-color: #3F51B5;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 50%;
+    height: 4em;
+    transition: transform .3s;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    background-color: #36459b;
+    box-shadow: 0px 10px 15px -3px rgba(82, 85, 88, 0.726);
+}
+
+/* Estilos para a lista de apostas */
+table {
+    max-width: 600px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1d1d1f;
+}
+
+footer p {
+
+    color: white;
+    text-align: center;
+}

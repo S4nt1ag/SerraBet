@@ -1,57 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Sistema de Apostas</title>
-  </head>
-  <body>
-    <h1>SerraBet</h1>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-      <br>
-      <label for="aposta">Aposta:</label>
-      <input type="time" id="aposta" name="aposta" required>
-      <br>
-      <button type="submit">Salvar</button>
-    </form>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-    <script>
-      // Configuração do Firebase
-     var firebaseConfig = {
-          apiKey: "AIzaSyDJtvFsSBhbrT8KHgB8ffB4Gphu7dlMshg",
-          authDomain: "serrabets.firebaseapp.com",
-          projectId: "serrabets",
-          storageBucket: "serrabets.appspot.com",
-          messagingSenderId: "517651439831",
-          appId: "1:517651439831:web:8583f5fc40ad0bdbf11092",
-          measurementId: "G-GXNCLG1RPS"
-    };
-      firebase.initializeApp(firebaseConfig);
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-16x16.png">
+  <title>SerraBet - O melhor site de apostas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+  
+  
+</head>
 
-      // Referência ao banco de dados
-      var database = firebase.database();
+<body>
+  <h1>SerraBet</h1>
+  <form>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br>
 
-      // Função para salvar a aposta no banco de dados
-      function salvarAposta(nome, aposta) {
-        var data = new Date();
-        var apostaRef = database.ref("apostas/" + data.getTime());
-        apostaRef.set({
-          nome: nome,
-          aposta: aposta
-        });
-      }
+    <label for="aposta">Hora da aula:</label>
+    <input type="text" id="aposta" name="aposta"><br>
 
-      // Evento de envio do formulário
-      document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        var nome = document.getElementById("nome").value;
-        var aposta = document.getElementById("aposta").value;
-        salvarAposta(nome, aposta);
-        alert("Aposta salva com sucesso!");
-      });
-    </script>
-  </body>
+    <button type="button" onclick="salvarAposta()">Salvar</button>
+  </form>
+
+  <h2>Apostas Salvas</h2>
+  <ul id="listaApostas">
+  </ul>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+  <script src="app.js"></script>
+  <footer>
+    <p>Desenvolvido por Gabrieis - 2023 © </p>
+  </footer>
+</body>
+
 </html>
