@@ -10,4 +10,5 @@ A ideia surgiu pois os alunos começaram a apostar na brincadeira qual seria o h
 <li> <a href="https://github.com/S4nt1ag/">Gabriel Santiago</a></li>
 </ul>
 
-## 🔗 Link Para acessar o site: https://S4nt1ag.github.io/SerraBet/
+## 🔗 Link Para acessar o site: 
+https://S4nt1ag.github.io/SerraBet/
