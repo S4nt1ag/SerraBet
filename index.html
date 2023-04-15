@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
   <main>
     <h1>SerraBet</h1>
     <p>Quando o professor irá entrar na aula?</p>
@@ -19,11 +20,39 @@
     <button onclick="jogar()">Jogar</button>
     <div id="card-resultado">
       <p id="txt-resultado"></p>
+=======
+
+  <h1>SerraBet</h1>
+  <div class="card">
+    <form>
+      <label for="nome">Digite seu nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Nome"><br>
+
+      <label for="aposta">Hora da aula:</label>
+      <input type="text" id="aposta" name="aposta" placeholder="00:00"><br>
+
+      <button type="button" onclick="salvarAposta()">Salvar</button>
+    </form>
+    <div class="card-apostas">
+
+      <h2>Apostas até agora</h2>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th> Nome </th>
+            <th> Horario da aposta </th>
+          </tr>
+        </thead>
+        <tbody id="tabelaApostas">
+        </tbody>
+      </table>
+>>>>>>> Stashed changes
     </div>
   </main>
 
   <footer>
-    <p>Desenvolvido por Gabrieis - 2023 © </p>
+    <p>Desenvolvido por <a href="https://github.com/S4nt1ag"> Gabriel Santiago</a> e <a
+        href="https://github.com/Arawns1"> Gabriel Damico</a> - 2023 © </p>
   </footer>
 </body>
 
