@@ -5,15 +5,14 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100%;
-    background: linear-gradient(0deg, rgb(17, 17, 236) 0%, rgb(77, 200, 253) 100%);
+html, body {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(77, 200, 253)), to(rgb(40, 59, 170))) fixed;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    justify-content: center;
-    align-items: center;
+    height: auto !important;
 }
+
 
 .scroll-left {
     color: rgb(255, 255, 255);
@@ -144,6 +143,7 @@ h2 {
     align-items: center;
 }
 .tabela {
+
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -155,7 +155,7 @@ h2 {
     
 }
 .tabela thead tr{
-    background-color: #3d52c9;
+    background-color: #3F51B5;
     text-align: center;
 
 }
@@ -165,7 +165,6 @@ h2 {
 .tabela thead > tr > th {
     color: #e2e2e2;    
 }
-
 .tabela th,
 .tabela td {
     padding: 12px 15px;
@@ -187,7 +186,6 @@ h2 {
     font-weight: bold;
     color: #009879;
 }
-
 
 footer {
     position: fixed;
