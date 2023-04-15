@@ -3,7 +3,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: #1d1d1f;
 }
 
 body {
@@ -15,6 +14,56 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.scroll-left {
+    color: rgb(255, 255, 255);
+    height: 50px;	
+    overflow: hidden;
+    position: relative;
+    font-size: 20px;
+    font-weight: 800;
+    background-color: #3F51B5;
+    
+   }
+   .scroll-left p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);	
+    transform:translateX(100%);
+    /* Apply animation to this element */	
+    -moz-animation: scroll-left 10s linear infinite;
+    -webkit-animation: scroll-left 10s linear infinite;
+    animation: scroll-left 8s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes scroll-left {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+   }
+   @-webkit-keyframes scroll-left {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+   }
+   @keyframes scroll-left {
+    0%   { 
+    -moz-transform: translateX(100%); /* Browser bug fix */
+    -webkit-transform: translateX(100%); /* Browser bug fix */
+    transform: translateX(100%); 		
+    }
+    100% { 
+    -moz-transform: translateX(-100%); /* Browser bug fix */
+    -webkit-transform: translateX(-100%); /* Browser bug fix */
+    transform: translateX(-100%); 
+    }
+   }
+
+
 .card{
     height: 80%;
     max-width: 45%;
@@ -40,6 +89,10 @@ h1 {
     text-align: center;
     margin: 1em auto;
     color: #000000;
+}
+
+#label{
+    margin-top: 1.4em;
 }
 
 input {
@@ -72,18 +125,17 @@ button {
     transition: transform .3s;
 }
 
-h2 {
-    text-align: center;
-    margin-top: 2.9em;
-    margin-bottom: 0.1em;
-    color: #000000;
-}
-
 button:hover {
     cursor: pointer;
     transform: scale(1.03);
     background-color: #3d52c9;
     box-shadow: 0px 10px 15px -3px rgba(82, 85, 88, 0.527);
+}
+h2 {
+    text-align: center;
+    margin-top: 1.9em;
+    margin-bottom: 0.1em;
+    color: #000000;
 }
 
 .card-apostas{
@@ -158,4 +210,18 @@ footer a:active{
 }
 footer a:visited{
     color: rgb(80, 130, 240);
+}
+@media only screen and (max-width: 600px){
+    .card{
+        height: 80%;
+        max-width: 95%;
+        margin: 0 auto;
+        margin-bottom: 3em;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        padding: 2em;
+        border-radius: 1em;
+        
+    }
 }

@@ -58,7 +58,8 @@ function listarApostas() {
         var childData = childSnapshot.val()
         var nome = childData.nome
         var aposta = childData.aposta
-
+        var menuScroll = document.querySelector('.scroll-left')
+        menuScroll.innerHTML = '<p>' + nome + ' Apostou!</p>'
         elementos.push(
           '<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>'
         )
