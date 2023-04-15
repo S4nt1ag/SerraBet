@@ -16,30 +16,33 @@ function salvarAposta() {
   var nome = document.getElementById('nome').value
   var aposta = document.getElementById('aposta').value
 
-  var newPostKey = firebase.database().ref().child('apostas').push().key
+  if (nome == '' || aposta == '') {
+    alert('Valores inválidos!')
+  } else {
+    var newPostKey = firebase.database().ref().child('apostas').push().key
 
-  var postData = {
-    nome: nome,
-    aposta: aposta
+    var postData = {
+      nome: nome,
+      aposta: aposta
+    }
+
+    var updates = {}
+    updates['/apostas/' + newPostKey] = postData
+
+    firebase
+      .database()
+      .ref()
+      .update(updates)
+      .then(function () {
+        console.log('Documento salvo com ID: ', newPostKey)
+        document.getElementById('nome').value = ''
+        document.getElementById('aposta').value = ''
+      })
+      .catch(function (error) {
+        console.error('Erro ao salvar documento: ', error)
+        alert('Erro ao salvar aposta!')
+      })
   }
-
-  var updates = {}
-  updates['/apostas/' + newPostKey] = postData
-
-  firebase
-    .database()
-    .ref()
-    .update(updates)
-    .then(function () {
-      console.log('Documento salvo com ID: ', newPostKey)
-      alert('Aposta salva com sucesso!')
-      document.getElementById('nome').value = ''
-      document.getElementById('aposta').value = ''
-    })
-    .catch(function (error) {
-      console.error('Erro ao salvar documento: ', error)
-      alert('Erro ao salvar aposta!')
-    })
 }
 
 function listarApostas() {
@@ -56,7 +59,9 @@ function listarApostas() {
         var nome = childData.nome
         var aposta = childData.aposta
 
-        elementos.push('<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>')
+        elementos.push(
+          '<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>'
+        )
       })
 
       // Inverte a ordem da lista de apostas
@@ -68,6 +73,8 @@ function listarApostas() {
 window.onload = function () {
   listarApostas()
 }
+const { throws } = require('assert')
+const { error } = require('console')
 var cron = require('node-cron')
 cron.schedule('0 22 * * *', function () {
   database.ref('/apostas').remove()

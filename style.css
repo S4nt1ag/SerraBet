@@ -17,20 +17,22 @@ body {
 }
 .card{
     height: 80%;
-    max-width: 600px;
+    max-width: 45%;
     margin: 0 auto;
+    margin-bottom: 3em;
     flex-direction: column;
     align-items: center;
     background-color: white;
     padding: 2em;
     border-radius: 1em;
+    
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    margin-top: 2em;
 }
 
 
@@ -38,17 +40,6 @@ h1 {
     text-align: center;
     margin: 1em auto;
     color: #000000;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 1em;
-    color: #000000;
-}
-
-li {
-    text-align: center;
-    margin-bottom: 1em;
 }
 
 input {
@@ -81,6 +72,13 @@ button {
     transition: transform .3s;
 }
 
+h2 {
+    text-align: center;
+    margin-top: 2.9em;
+    margin-bottom: 0.1em;
+    color: #000000;
+}
+
 button:hover {
     cursor: pointer;
     transform: scale(1.03);
@@ -98,9 +96,10 @@ button:hover {
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    max-width: 45%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     background-color: #e2e2e2;
+    max-width: 45%;
     
 }
 .tabela thead tr{
@@ -137,25 +136,6 @@ button:hover {
     color: #009879;
 }
 
-/* Estilos para a lista de apostas
-table {
-    max-width: 600px;
-    margin: 20px auto;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-th,
-td {
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-} */
 
 footer {
     position: fixed;
@@ -166,7 +146,16 @@ footer {
 }
 
 footer p {
-
     color: white;
     text-align: center;
+}
+footer a{
+    color: rgb(80, 130, 240);
+    padding: 0px;
+}
+footer a:active{
+    color: rgb(80, 130, 240);
+}
+footer a:visited{
+    color: rgb(80, 130, 240);
 }
