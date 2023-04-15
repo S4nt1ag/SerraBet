@@ -1,70 +1,66 @@
 * {
-<<<<<<< Updated upstream
-  font-family: 'Roboto', sans-serif;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  color: #1d1d1f;
-}
-body{
-  height: 100vh;
-  background: linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(0,179,255,1) 100%);
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
-}
-main {
-  background-color: white;
-  border: 2px solid #e2e2e2;
-  padding: 2em;
-  border-radius: 1em;
-  margin: 10em;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.397);
-  min-width: 70%;
-  
-}
-main h1{
-  text-align: center;
-  margin-bottom: 1em;
-}
-main p{
-  text-align: center;
-  margin-bottom: 0.1em;
-}
-
-main input[type="time"]{
- padding: 10px;
- width: 50%;
- height: 3em;
- text-align: center;
- font-size: 20px;
- border-radius: 1em;
- border-width: 1px;
- margin: 10px auto;
- text-align: center;
- border: 1px solid #dddddd;
- transition: transform .3s;
- text-indent: 5%;
-}
-
-
-
-main input:hover{
-  border-color: rgba(35, 35, 255, 0.596);
-  transform: scale(1.002);
-  cursor: pointer;
-=======
     font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
+html, body {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(77, 200, 253)), to(rgb(40, 59, 170))) fixed;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: auto !important;
+}
+
+
+.scroll-left {
+    color: rgb(255, 255, 255);
+    height: 50px;	
+    overflow: hidden;
+    position: relative;
+    font-size: 20px;
+    font-weight: 800;
+    background-color: #3F51B5;
+    
+   }
+   .scroll-left p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);	
+    transform:translateX(100%);
+    /* Apply animation to this element */	
+    -moz-animation: scroll-left 10s linear infinite;
+    -webkit-animation: scroll-left 10s linear infinite;
+    animation: scroll-left 8s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes scroll-left {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+   }
+   @-webkit-keyframes scroll-left {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+   }
+   @keyframes scroll-left {
+    0%   { 
+    -moz-transform: translateX(100%); /* Browser bug fix */
+    -webkit-transform: translateX(100%); /* Browser bug fix */
+    transform: translateX(100%); 		
+    }
+    100% { 
+    -moz-transform: translateX(-100%); /* Browser bug fix */
+    -webkit-transform: translateX(-100%); /* Browser bug fix */
+    transform: translateX(-100%); 
+    }
+   }
 
 body {
     height: 100%;
@@ -76,8 +72,9 @@ body {
     align-items: center;
 }
 .card{
-    max-width: 600px;
-    margin: 2em auto;
+    width: 50vw;
+    margin: 0 auto;
+    margin-bottom: 3em;
     flex-direction: column;
     align-items: center;
     background-color: white;
@@ -86,11 +83,12 @@ body {
 }
 
 form {
-    margin-top: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2em;
 }
+
 
 h1 {
     text-align: center;
@@ -98,16 +96,8 @@ h1 {
     color: #000000;
 }
 
-h2 {
-    text-align: center;
-    margin-top: 2.9em;
-    margin-bottom: 0.1em;
-    color: #000000;
-}
-
-li {
-    text-align: center;
-    margin-bottom: 1em;
+#label{
+    margin-top: 1.4em;
 }
 
 input {
@@ -122,64 +112,57 @@ input {
     text-align: center;
     border: 1px solid #dddddd;
     cursor:pointer;
->>>>>>> Stashed changes
 }
 
 button {
-  appearance:none;
-  -webkit-appearance:none;
-  margin: 20px auto;
-  font-size: 16px;
-  padding:10px;
-  border:none;
-  background-color:#3F51B5;
-  color:#fff;
-  font-weight:600;
-  border-radius:5px;
-  width:50%;
-  height: 4em;
-  transition: transform .3s;
-}
-button:hover{
-  cursor: pointer;
-  transform: scale(1.03);
-  background-color:#36459b;
-  box-shadow: 0px 10px 15px -3px rgba(82, 85, 88, 0.726);
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 20px auto;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background-color: #3F51B5;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 50%;
+    height: 4em;
+    transition: transform .3s;
 }
 
-#card-resultado{
-  display: none;
-  visibility:hidden;
-  margin-top: 1em;
-  background-color: #D9DDDC;
-  height: 4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1.1em;
-}
-#txt-resultado{
-  flex: 0 0 auto;
-  color: black;
-  font-weight: 700;
-  padding: 0px 1.2em;
-}
-footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #1d1d1f;
-}
-<<<<<<< Updated upstream
-footer p {
-  
-  color: white;
-  text-align: center;
-}
-=======
-.tabela thead tr{
+button:hover {
+    cursor: pointer;
+    transform: scale(1.03);
     background-color: #3d52c9;
+    box-shadow: 0px 10px 15px -3px rgba(82, 85, 88, 0.527);
+}
+h2 {
+    text-align: center;
+    margin-top: 1.9em;
+    margin-bottom: 0.1em;
+    color: #000000;
+}
+
+.card-apostas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabela {
+
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    max-width: 45%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #e2e2e2;
+    max-width: 45%;
+    
+}
+.tabela thead tr{
+    background-color: #3F51B5;
     text-align: center;
 
 }
@@ -189,45 +172,60 @@ footer p {
 .tabela thead > tr > th {
     color: #e2e2e2;    
 }
-
 .tabela th,
 .tabela td {
     padding: 12px 15px;
     text-align: center;
 }
 .tabela tbody tr {
-    border-bottom: 1px solid #bdb9b9;
+    border-bottom: 1px solid #dddddd;
 }
 
 .tabela tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-
 .tabela tbody tr:last-of-type {
     border-bottom: 2px solid #3d52c9;
 }
 
+.tabela tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
 
 footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    padding:10px ;
     background-color: #1d1d1f;
 }
 
 footer p {
-
     color: white;
     text-align: center;
 }
-
-footer a:visited{
-    color:rgb(27, 94, 219);
+footer a{
+    color: rgb(80, 130, 240);
+    padding: 0px;
 }
-a:active {
-    color: rgb(27, 94, 219);
-  }
->>>>>>> Stashed changes
+footer a:active{
+    color: rgb(80, 130, 240);
+}
+footer a:visited{
+    color: rgb(80, 130, 240);
+}
+@media only screen and (max-width: 600px){
+    .card{
+        width: 50vw;
+        margin: 0 auto;
+        margin-bottom: 3em;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        padding: 2em;
+        border-radius: 1em;
+        
+    }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="/assets/favicon-16x16.png">
@@ -8,33 +9,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
-  <script src="index.js"></script>
+  <link rel="shortcut icon" href="assets/favicon-16x16.png" type="image/x-icon">
 </head>
 
 <body>
-<<<<<<< Updated upstream
   <main>
-    <h1>SerraBet</h1>
-    <p>Quando o professor irá entrar na aula?</p>
-    <input type="time" id="hora" name="hora">
-    <button onclick="jogar()">Jogar</button>
-    <div id="card-resultado">
-      <p id="txt-resultado"></p>
-=======
+<header>
+  <div class="scroll-left"></div>
+</header>
 
-  <h1>SerraBet</h1>
+<body>
+  <h1>🎲SerraBet</h1>
   <div class="card">
     <form>
-      <label for="nome">Digite seu nome</label>
-      <input type="text" id="nome" name="nome" placeholder="Nome"><br>
+      <label for="nome" id="label">Digite seu nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required /><br>
 
-      <label for="aposta">Hora da aula:</label>
-      <input type="text" id="aposta" name="aposta" placeholder="00:00"><br>
+        <label for="aposta" id="label">Hora da aula:</label>
+        <input type="text" id="aposta" name="aposta" placeholder="00:00" required /><br>
 
       <button type="button" onclick="salvarAposta()">Salvar</button>
+
     </form>
     <div class="card-apostas">
-
       <h2>Apostas até agora</h2>
       <table class="tabela">
         <thead>
@@ -46,14 +43,18 @@
         <tbody id="tabelaApostas">
         </tbody>
       </table>
->>>>>>> Stashed changes
     </div>
-  </main>
-
+  </div>
   <footer>
-    <p>Desenvolvido por <a href="https://github.com/S4nt1ag"> Gabriel Santiago</a> e <a
-        href="https://github.com/Arawns1"> Gabriel Damico</a> - 2023 © </p>
+    <p>Desenvolvido por <a href="https://github.com/S4nt1ag">Gabriel Santigo </a> , <a
+        href="https://github.com/Arawns1"> Gabriel Damico</a> & <a href="https://github.com/Artoda"> Rômulo
+        Andriolo</a> -
+      2023 © </p>
   </footer>
 </body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+  <script src="app.js"></script>
 
 </html>
