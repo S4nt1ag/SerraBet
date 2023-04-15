@@ -62,10 +62,8 @@ html, body {
     }
    }
 
-
 .card{
-    height: 80%;
-    max-width: 45%;
+    width: 50vw;
     margin: 0 auto;
     margin-bottom: 3em;
     flex-direction: column;
@@ -211,8 +209,7 @@ footer a:visited{
 }
 @media only screen and (max-width: 600px){
     .card{
-        height: 80%;
-        max-width: 95%;
+        width: 50vw;
         margin: 0 auto;
         margin-bottom: 3em;
         flex-direction: column;
