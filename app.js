@@ -71,6 +71,11 @@ function listarApostas() {
       listaApostas.innerHTML = elementos.join('')
     })
 }
+
+window.ready = function () {
+  listarApostas()
+}
+
 window.onload = function () {
   listarApostas()
 }
