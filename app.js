@@ -78,6 +78,7 @@ window.ready = function () {
 
 window.onload = function () {
   listarApostas()
+  alert('Obrigado por usar o Serrabet, nos vemos na próxima matéria s2')
 }
 const { throws } = require('assert')
 const { error } = require('console')
