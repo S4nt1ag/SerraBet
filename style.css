@@ -104,6 +104,7 @@ input {
     text-align: center;
     border: 1px solid #dddddd;
     cursor:pointer;
+    background-color : #d1d1d1; 
 }
 
 button {

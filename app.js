@@ -59,10 +59,7 @@ function listarApostas() {
         var nome = childData.nome
         var aposta = childData.aposta
         var menuScroll = document.querySelector('.scroll-left')
-        menuScroll.innerHTML = '<p>' + nome + ' Apostou!</p>'
-        elementos.push(
-          '<tr><td>' + nome + '</td>' + '<td>' + aposta + '</td></tr>'
-        )
+        menuScroll.innerHTML = '<p>Nos vemos na próxima máteria s2</p>'
       })
 
       // Inverte a ordem da lista de apostas
